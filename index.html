@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gun-Server</title>
+    <script src="/node_modules/gun/gun.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+      'use strict';
+      let gun = Gun(['http://127.0.0.1:8080/gun', 'http://127.0.0.1:8080/gun', 'http://127.0.0.1:8080/gun']);
+      gun.get('heartbeat').on((data, key) => {
+        $('#heartbeat').text(JSON.stringify(data));
+      });
+      console.info(gun);
+    </script>
+</head>
+<body>
+Gun-Server
+<div>Heartbeat:<span id="heartbeat">--</span></div>
+</body>
+</html>

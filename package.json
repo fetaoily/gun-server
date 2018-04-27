@@ -2,7 +2,15 @@
   "name": "gun-server",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "repository": "https://github.com/fetaoily/gun-server.git",
   "author": "fetaoily <fetaoily@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.16.3",
+    "gun": "0.9.993",
+    "jquery": "3.3.1"
+  }
 }
