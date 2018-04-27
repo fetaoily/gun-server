@@ -3,6 +3,7 @@ console.log("If module not found, install express globally `npm i express -g`!")
 // require
 const Gun = require('gun');
 const express = require('express');
+const Schedule = require('node-schedule');
 
 // ##
 // Gun Server Port
@@ -21,9 +22,9 @@ const server = app.listen(port);
 const gun = Gun({file: 'data.json', web: server});
 
 // ##
-setInterval(() => {
+Schedule.scheduleJob('*/1 * * * * *', () => {
   gun.get('heartbeat').put({
-    heartbeat: new Date().getTime()
+    heartbeat: new Date().getTime(),
   });
 });
 
